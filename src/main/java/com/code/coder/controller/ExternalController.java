@@ -31,7 +31,11 @@ public class ExternalController {
 
 	@GetMapping(value = "/topics/{topic}")
 	public List<String> getQuestionsOfTopics(@PathVariable("topic") String topic) {
-		return qRepo.findNamesByTopic(topic).stream().map((name) -> name.getName()).toList();
+		return qRepo
+			.findNamesByTopic(topic)
+			.stream()
+			.map((name) -> name.getName())
+			.toList();
 	}
 
 	@GetMapping(value = "/topics")
